@@ -1353,3 +1353,175 @@ header nav ul li a {
 footer {
   border-bottom: none;
 }
+
+
+/* added */
+
+
+.product-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.product-images img {
+  max-width: 150px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.special-layout .top-images {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.special-layout .bottom-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .special-layout .top-images {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+/*Reset for  Images */
+img {
+  border: none !important;
+  box-shadow: none !important;
+  display: block;
+  object-fit: cover;
+}
+
+/* Grade1 styles */
+.top-images-with-text {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.top-images-with-text .image-block {
+  text-align: center;
+}
+
+.image-label {
+  font-size: 12px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.bottom-image img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border: none;
+  box-shadow: none;
+}
+
+/* Grade2 & Grade3 styles */
+.grade2-wrapper,
+.grade3-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grade2-second,
+.grade3-second {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grade2-second img,
+.grade3-second img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.grade2-first,
+.grade3-first {
+  position: absolute;
+  bottom: -20px;
+  left: -40px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grade2-first img,
+.grade3-first img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Grade4 styles */
+.grade4-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grade4-first {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.grade4-first img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.grade4-second {
+  position: absolute;
+  right: -40px;
+  top: 60px; 
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grade4-second img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  border-radius: 50%;
+  background-color: white; 
+}
