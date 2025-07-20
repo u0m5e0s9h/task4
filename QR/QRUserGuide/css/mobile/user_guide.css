@@ -192,12 +192,25 @@ body {
   display: flex;
 }
 
+/* .app_config_text {
+  width: 100vw;
+  justify-content: flex-start;
+  margin-left: 20px;
+  margin-top: 40px;
+} */
+
 .app_config_text {
   width: 100vw;
   justify-content: flex-start;
   margin-left: 20px;
   margin-top: 40px;
+  background-color: #FAE100;
+  border-radius: 50px; /* Creates circular/rounded edges */
+  padding: 10px 20px;  /* Adds spacing inside for better appearance */
+  display: inline-block; /* Ensures it wraps content properly */
 }
+
+
 
 .app_video_check {
   width: 634px;

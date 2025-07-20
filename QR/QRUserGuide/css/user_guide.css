@@ -304,6 +304,18 @@ h2 {
   /* height: 510px; */
 }
 
+
+.app_config_text {
+  width: auto;
+  justify-content: flex-start;
+  margin-left: 10px;
+  margin-top: 40px;
+  background-color: #FAE100;
+  border-radius: 50px; 
+  padding: 10px 20px;  
+  display: inline-block; 
+}
+
 .div_numbers {
   height: 430px;
   display: flex;
@@ -633,15 +645,29 @@ h2 {
   display: flex;
 }
 
+
+/* modified for yellow numbering */
+
+
 .div_11 {
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
+  width: 18px;           
+           
   font-weight: 500;
-  border-radius: 50%;
-  border: #999 solid 1px;
+  border-radius: 50%;    
+  border: #FAE100 solid 1px;
+  background-color: transparent; 
+  color: #FAE100;        
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.div_11.active {
+  background-color: #FAE100; 
+  color: #ffffff;            
 }
 
 .div_12 {
@@ -651,8 +677,10 @@ h2 {
   margin: 0;
   justify-content: center;
   align-items: center;
-  background: #999;
+  background: #FAE100;
 }
+
+
 
 .div_13 {
   width: 9.06px;
@@ -1394,15 +1422,45 @@ footer {
 }
 
 
-/*Reset for  Images */
-img {
-  border: none !important;
-  box-shadow: none !important;
-  display: block;
-  object-fit: cover;
+
+/* grade 3 style */
+
+
+/* Make toggle-part full width */
+.toggle-part {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-/* Grade1 styles */
+
+
+.qr_sticker_images {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 350px;           
+  height: 40px;           
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: inherit; 
+  margin: 5px;
+  padding: 0;             
+  transition: none !important;
+  line-height: normal;
+}
+
+.qr_sticker_images.active {
+  background-color: inherit; 
+  transform: none;
+}
+
+/* = Grade1 styles */
 .top-images-with-text {
   display: flex;
   gap: 15px;
@@ -1417,7 +1475,7 @@ img {
 
 .image-label {
   font-size: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: 600;
 }
 
@@ -1429,7 +1487,7 @@ img {
   box-shadow: none;
 }
 
-/* Grade2 & Grade3 styles */
+/* Grade2 & grade3 styles */
 .grade2-wrapper,
 .grade3-wrapper {
   position: relative;
@@ -1508,7 +1566,7 @@ img {
 .grade4-second {
   position: absolute;
   right: -40px;
-  top: 60px; 
+  top: 70px;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -1521,7 +1579,13 @@ img {
 .grade4-second img {
   width: 100%;
   height: 100%;
-  object-fit: contain; 
+  object-fit: contain;
   border-radius: 50%;
-  background-color: white; 
+  background-color: white;
+}
+
+
+img {
+  border: none !important;
+  box-shadow: none !important;
 }

@@ -1,17 +1,14 @@
 
 $(document).ready(function () {
-
-  // for sub header toggle
   const links = $(".sub-header-menu a");
   const parts = $(".toggle-part");
 
+  // Sub-header menu toggle
   links.each(function (index) {
     $(this).on("click", function (e) {
       e.preventDefault();
-
       links.removeClass("active");
       $(this).addClass("active");
-
       parts.hide();
       $(parts[index]).show();
     });
@@ -22,15 +19,10 @@ $(document).ready(function () {
   links.removeClass("active");
   $(links[0]).addClass("active");
 
-  // Combine click event listener for both .guide_div_text and .div_23 elements
+  // Guide step image update
   $(".guide_div_text").click(function () {
-    // Get the image path from the data attribute of the clicked item
     let newImage = $(this).data("image");
-
-    // Update the src of the image placeholder
-    $("#stepImage").attr("src", newImage);
-
-    $("#stepImage").css({
+    $("#stepImage").attr("src", newImage).css({
       width: "100%",
       "max-width": "600px",
       height: "auto",
@@ -46,7 +38,7 @@ $(document).ready(function () {
     }
   });
 
-  // dynamic image loading
+  // Level image dynamic loading
   $(".div_23").click(function () {
     let newImage = $(this).data("image");
     $("#levelImage").attr("src", newImage);
@@ -60,6 +52,11 @@ $(document).ready(function () {
     $(".qr_sticker_images").removeClass("active");
     $(this).addClass("active");
 
+    //for highlighting number
+    const index = $(this).index();
+    $(".div_11").removeClass("active");
+    $(".div_11").eq(index).addClass("active");
+
     let images = $(this).data("images");
     if (typeof images === "string") {
       try {
@@ -70,9 +67,13 @@ $(document).ready(function () {
     }
 
     const container = $("#gradeImageContainer");
-    container.empty(); 
+    container.empty();
 
-    // for grade1 
+    
+    $(".qr_sticker_images").css({ "min-height": "60px" });
+    $(this).css({ "min-height": "100px" }); 
+
+    // grade1 
     if ($(this).attr("id") === "grade1" && images.length >= 2) {
       container.append(`
         <div class="top-images-with-text">
@@ -93,9 +94,9 @@ $(document).ready(function () {
           </div>
         `);
       }
-    } 
-    
-    //  grade2
+    }
+
+    // grade2
     else if ($(this).attr("id") === "grade2" && images.length === 2) {
       container.append(`
         <div class="grade2-wrapper">
@@ -103,9 +104,9 @@ $(document).ready(function () {
           <img class="grade2-second" src="${images[1]}" alt="QR Step 2B">
         </div>
       `);
-    } 
-    
-    // for grade3
+    }
+
+    // grade3 
     else if ($(this).attr("id") === "grade3" && images.length === 2) {
       container.append(`
         <div class="grade3-wrapper">
@@ -113,9 +114,9 @@ $(document).ready(function () {
           <img class="grade3-second" src="${images[1]}" alt="QR Step 3B">
         </div>
       `);
-    } 
-    
-    // for grade4
+    }
+
+    // grade4
     else if ($(this).attr("id") === "grade4" && images.length === 2) {
       container.append(`
         <div class="grade4-wrapper">
@@ -123,28 +124,21 @@ $(document).ready(function () {
           <img class="grade4-second" src="${images[1]}" alt="QR Step 4B">
         </div>
       `);
-    } 
+    }
+
     
-    //  for others
     else {
-      if (images.length === 3) {
-        container.append(`
-          <div class="top-images">
-            <img src="${images[0]}" alt="Step Image 1">
-            <img src="${images[1]}" alt="Step Image 2">
-          </div>
-          <div class="bottom-image">
-            <img src="${images[2]}" alt="Step Image 3">
-          </div>
-        `);
-      } else {
-        images.forEach(imgSrc => {
-          container.append(`<img src="${imgSrc}" alt="Step Image">`);
-        });
-      }
+      images.forEach(imgSrc => {
+        container.append(`<img src="${imgSrc}" alt="Step Image">`);
+      });
     }
   });
 
-  
+  // Handle number  clicks to trigger related text
+  $(".div_11").click(function () {
+    const index = $(this).index(".div_11");
+    $(".qr_sticker_images").eq(index).trigger("click");
+  });
+
   $(".qr_sticker_images").first().trigger("click");
 });
