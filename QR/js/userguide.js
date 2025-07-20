@@ -19,18 +19,23 @@ $(document).ready(function () {
   links.removeClass("active");
   $(links[0]).addClass("active");
 
-  // Guide step image update
-  $(".guide_div_text").click(function () {
+  // Guide step image update (including nested steps like 4.1 & 4.2)
+  $(".guide_div_text").on("click", function (e) {
+    e.stopPropagation(); // Prevent parent steps from overriding child steps
     let newImage = $(this).data("image");
-    $("#stepImage").attr("src", newImage).css({
-      width: "100%",
-      "max-width": "600px",
-      height: "auto",
-    });
+    if (newImage) {
+      $("#stepImage").attr("src", newImage).css({
+        width: "100%",
+        "max-width": "600px",
+        height: "auto",
+      });
+    }
 
+    // Remove active from all steps (including nested)
     $(".guide_div_text").removeClass("active");
     $(this).addClass("active");
 
+    // Show download codes only for step1
     if ($(this).attr("id") === "step1") {
       $("#qrDownloadCodes").show();
     } else {
@@ -47,12 +52,12 @@ $(document).ready(function () {
     $(this).addClass("active");
   });
 
-  
+  // QR Sticker images
   $(".qr_sticker_images").click(function () {
     $(".qr_sticker_images").removeClass("active");
     $(this).addClass("active");
 
-    //for highlighting number
+    // for highlighting number
     const index = $(this).index();
     $(".div_11").removeClass("active");
     $(".div_11").eq(index).addClass("active");
@@ -69,9 +74,8 @@ $(document).ready(function () {
     const container = $("#gradeImageContainer");
     container.empty();
 
-    
     $(".qr_sticker_images").css({ "min-height": "60px" });
-    $(this).css({ "min-height": "100px" }); 
+    $(this).css({ "min-height": "100px" });
 
     // grade1 
     if ($(this).attr("id") === "grade1" && images.length >= 2) {
@@ -126,7 +130,6 @@ $(document).ready(function () {
       `);
     }
 
-    
     else {
       images.forEach(imgSrc => {
         container.append(`<img src="${imgSrc}" alt="Step Image">`);
@@ -134,7 +137,7 @@ $(document).ready(function () {
     }
   });
 
-  // Handle number  clicks to trigger related text
+  // Handle number clicks to trigger related text
   $(".div_11").click(function () {
     const index = $(this).index(".div_11");
     $(".qr_sticker_images").eq(index).trigger("click");
@@ -142,3 +145,4 @@ $(document).ready(function () {
 
   $(".qr_sticker_images").first().trigger("click");
 });
+

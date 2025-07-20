@@ -1589,3 +1589,24 @@ img {
   border: none !important;
   box-shadow: none !important;
 }
+
+
+/* for first section  */
+
+#step4, 
+#step4_1, 
+#step4_2 {
+  margin-bottom: 2px;
+  padding: 1px 0;      
+  line-height: 1.2;     
+}
+
+#step4_1, 
+#step4_2 {
+  margin-left: 10px;  
+  font-size: 0.93em;   
+}
+
+
+
+
