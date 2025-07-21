@@ -1051,17 +1051,17 @@ h2 {
   gap: 10px;
 }
 
-header {
+
+
+
+  header {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* gap: 20px; */
   width: 100vw;
   height: 64px;
   background: #fff;
-  /* padding: 10px 20px; */
   border-bottom: 1px solid #ddd;
-  /* position: fixed; */
 }
 
 .header-content {
@@ -1074,6 +1074,7 @@ header {
 
 .header_logo {
   padding: 16px 24px;
+  margin-left: 80px;
 }
 
 .header-content .logo {
@@ -1085,20 +1086,25 @@ header {
   justify-content: flex-end;
   align-items: center;
   flex-direction: row;
-  /* gap: 20px; */
-  /* width: 478px; */
-  /* height: 85px; */
+  margin-right: 50px;
 }
 
 header nav ul {
   list-style-type: none;
   display: flex;
-  /* gap: 25px; */
   padding: 16px 25px;
 }
 
 header nav ul li {
-  margin-right: 48px;
+  position: relative;
+  padding: 0 10px;
+}
+
+header nav ul li:not(:last-child)::after {
+  content: "|";
+  position: absolute;
+  right: 0;
+  color: #ccc;
 }
 
 header nav ul li:last-child {
@@ -1106,7 +1112,6 @@ header nav ul li:last-child {
 }
 
 header nav ul li a {
-  width: 300px;
   text-decoration: none;
   color: #999;
   font-weight: bold;
@@ -1116,9 +1121,13 @@ header nav ul li a {
 .header_link:focus,
 .header_link:active {
   color: black;
-  /* opacity: 0.75; */
   transition: all 0.3s;
 }
+
+
+
+
+
 
 .menu2 {
   color: black;
